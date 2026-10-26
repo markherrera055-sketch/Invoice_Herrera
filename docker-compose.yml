@@ -1,0 +1,46 @@
+services:
+  app:
+    build: .
+    image: invoiceninja-local
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    environment:
+      # These override the values in .env so the app talks to the db container
+      APP_URL: http://localhost:8000
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: ninja
+      DB_USERNAME: ninja
+      DB_PASSWORD: ninja
+      # First login (only used when the database has no accounts yet)
+      IN_USER_EMAIL: admin@example.com
+      IN_PASSWORD: changeme!
+    volumes:
+      - ./.env:/var/www/html/.env
+      - app_storage:/var/www/html/storage
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: mariadb:11.4
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: ninja
+      MARIADB_USER: ninja
+      MARIADB_PASSWORD: ninja
+      MARIADB_ROOT_PASSWORD: root
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  db_data:
+  app_storage:

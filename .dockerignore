@@ -1,0 +1,16 @@
+.git
+.github
+.idea
+.vscode
+.claude
+.env
+node_modules
+invoiceninja
+tests
+storage/logs/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/debugbar
+bootstrap/cache/*.php
+public/storage
