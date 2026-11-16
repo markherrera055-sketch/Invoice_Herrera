@@ -1,0 +1,42 @@
+/* PCFix customer pages inside the Invoice Ninja client portal. Everything is scoped under .pcx */
+.pcx { --b: #e3e6eb; --m: #6b7280; --t: #16191f; --brand: #1d5fbf; --good: #0f7b3c; --good-bg: #e5f5ec; --warn: #8a5a00; --warn-bg: #fdf3dc; --bad: #b42323; --bad-bg: #fde7e7; --info: #1d5fbf; --info-bg: #e8f0fc; color: var(--t); font-size: 14px; }
+.pcx * { box-sizing: border-box; }
+.pcx .card { background: #fff; border: 1px solid var(--b); border-radius: 8px; margin-bottom: 16px; }
+.pcx .card-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--b); flex-wrap: wrap; }
+.pcx .card-head h2 { font-size: 16px; font-weight: 600; margin: 0; }
+.pcx .card-body { padding: 16px; }
+.pcx .head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin: 8px 0 16px; flex-wrap: wrap; }
+.pcx .head h1 { font-size: 20px; font-weight: 600; margin: 0; }
+.pcx .head p, .pcx .muted { color: var(--m); margin: 2px 0 0; }
+.pcx table { width: 100%; border-collapse: collapse; }
+.pcx th { text-align: left; font-size: 12px; color: var(--m); text-transform: uppercase; padding: 8px 12px; border-bottom: 1px solid var(--b); background: #f8f9fb; }
+.pcx td { padding: 10px 12px; border-bottom: 1px solid var(--b); vertical-align: top; }
+.pcx .wrap { overflow-x: auto; }
+.pcx .badge { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #eef0f3; color: #4b5260; white-space: nowrap; }
+.pcx .b-good { background: var(--good-bg); color: var(--good); } .pcx .b-warn { background: var(--warn-bg); color: var(--warn); }
+.pcx .b-bad { background: var(--bad-bg); color: var(--bad); } .pcx .b-info, .pcx .b-serious { background: var(--info-bg); color: var(--info); }
+.pcx .btn { display: inline-block; padding: 8px 14px; border-radius: 6px; border: 1px solid #cfd4dc; background: #fff; font-weight: 600; color: var(--t); cursor: pointer; text-decoration: none; }
+.pcx .btn-primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+.pcx a { color: var(--brand); }
+.pcx label { display: block; font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+.pcx .field { margin-bottom: 14px; }
+.pcx .field .hint { font-weight: 400; color: var(--m); font-size: 12px; }
+.pcx input[type=text], .pcx input[type=email], .pcx input[type=tel], .pcx input[type=date], .pcx select, .pcx textarea { width: 100%; padding: 8px 10px; border: 1px solid #cfd4dc; border-radius: 6px; font: inherit; background: #fff; }
+.pcx textarea { min-height: 90px; }
+.pcx .form-row { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+.pcx dl { display: grid; grid-template-columns: 160px 1fr; gap: 6px 12px; margin: 0; }
+.pcx dt { color: var(--m); } .pcx dd { margin: 0; }
+.pcx .steps { display: flex; list-style: none; padding: 0; margin: 0; overflow-x: auto; }
+.pcx .steps li { flex: 1; min-width: 80px; text-align: center; font-size: 12px; color: var(--m); position: relative; padding-top: 22px; }
+.pcx .steps li::before { content: ""; position: absolute; top: 6px; left: 50%; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: #cfd4dc; z-index: 1; }
+.pcx .steps li::after { content: ""; position: absolute; top: 11px; left: -50%; width: 100%; height: 2px; background: #cfd4dc; }
+.pcx .steps li:first-child::after { display: none; }
+.pcx .steps li.done { color: var(--t); font-weight: 600; } .pcx .steps li.done::before, .pcx .steps li.done::after { background: var(--brand); }
+.pcx .timeline { list-style: none; margin: 0; padding: 0; }
+.pcx .timeline li { border-left: 2px solid var(--b); margin-left: 6px; padding: 0 0 14px 18px; position: relative; }
+.pcx .timeline li::before { content: ""; position: absolute; left: -7px; top: 3px; width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 2px solid var(--brand); }
+.pcx .timeline small { color: var(--m); }
+.pcx .alert { padding: 10px 14px; border-radius: 6px; margin-bottom: 14px; background: var(--info-bg); color: var(--info); }
+.pcx .alert-error { background: var(--bad-bg); color: var(--bad); }
+.pcx .hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+@media (max-width: 640px) { .pcx dl { grid-template-columns: 1fr; } }

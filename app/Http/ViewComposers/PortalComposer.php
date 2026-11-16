@@ -128,6 +128,12 @@ class PortalComposer
             $data[] = ['title' => ctrans('texts.credits'), 'url' => 'client.credits.index', 'icon' => 'credit-card', 'id' => 'credits'];
         }
 
+        if (config('pcfix.enabled')) {
+            // PCFix Hub: repair requests / tracking and warranty self-service.
+            $data[] = ['title' => 'Repairs', 'url' => 'client.ops.service_requests.index', 'icon' => 'tool', 'id' => 'ops_repairs'];
+            $data[] = ['title' => 'Warranty', 'url' => 'client.ops.warranty.index', 'icon' => 'shield', 'id' => 'ops_warranty'];
+        }
+
         $data[] = ['title' => ctrans('texts.payment_methods'), 'url' => 'client.payment_methods.index', 'icon' => 'shield', 'id' => 'payment_methods'];
         $data[] = ['title' => ctrans('texts.documents'), 'url' => 'client.documents.index', 'icon' => 'download', 'id' => 'documents'];
 

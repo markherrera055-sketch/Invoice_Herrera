@@ -142,6 +142,7 @@ class Kernel extends HttpKernel
         'verified' => EnsureEmailIsVerified::class,
         'query_logging' => QueryLogging::class,
         'token_auth' => TokenAuth::class,
+        'ops_auth' => \App\Http\Middleware\OpsAuthenticate::class,
         'api_secret_check' => ApiSecretCheck::class,
         'contact_token_auth' => ContactTokenAuth::class,
         'contact_db' => ContactSetDb::class,

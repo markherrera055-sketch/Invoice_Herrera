@@ -135,7 +135,9 @@ class QuoteService
             $contact = $this->quote->invitations->first()->contact;
         }
 
-        if ($this->quote->client->getSetting('auto_convert_quote')) {
+        // PCFix Hub: repair-job quotes are invoiced only after the repair is completed and verified
+        // (InvoiceGenerator), so they are never auto-converted at approval time.
+        if ($this->quote->client->getSetting('auto_convert_quote') && ! \App\Services\Ops\InvoiceGenerator::defersInvoicing($this->quote)) {
             $this->convertToInvoice();
 
             $this->invoice
